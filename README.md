@@ -9,3 +9,6 @@ React: Biblioteca de JavaScript para construir interfaces de usuario basadas en 
 Tailwind CSS: Framework de CSS enfocado en utilidades para un desarrollo ágil de estilos.
 
 Vite / Create React App: Herramienta de construcción.
+
+React Router Dom.
+
