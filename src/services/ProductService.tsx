@@ -1,6 +1,6 @@
 import { DraftProductSchema } from "../types/indes";
 import { safeParse } from "valibot";
-
+import axios from "axios";
 
 export async function addProduct( data: any) {
 
@@ -13,16 +13,21 @@ export async function addProduct( data: any) {
      );
 
         if (result.success) {
-
-            console.log("Producto validado correctamente", result.output);
+            const url = import.meta.env.VITE_API_URL + "/products";
+            const {data} = await axios.post(url, 
+            {name: result.output.name,
+            price: result.output.price
+         }
+            );
+            //console.log("Producto validado correctamente", result.output);
         } else {
-            console.log("Error al validar el producto", result.issues);
+            //console.log("Error al validar el producto", result.issues);
             throw new Error("Error al validar el producto");
         }
 
 
  } catch (error) {
-    console.error("Error al agregar el producto", error);
+   // console.error("Error al agregar el producto", error);
     throw new Error("Error al agregar el producto");
  }
 
